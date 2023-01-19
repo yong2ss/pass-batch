@@ -18,10 +18,8 @@ import org.springframework.context.annotation.Bean;
 @SpringBootApplication
 public class PassBatchApplication {
 
-	@Autowired
 	private final JobBuilderFactory jobBuilderFactory;
 
-	@Autowired
 	private final StepBuilderFactory stepBuilderFactory;
 
 	public PassBatchApplication(JobBuilderFactory jobBuilderFactory, StepBuilderFactory stepBuilderFactory) {
