@@ -3,7 +3,7 @@ spring:
     name: pass-batch
   datasource:
     url: jdbc:mysql://127.0.0.1:3306/pass_local?zeroDateTimeBehavior=convertToNull&characterEncoding=UTF-8&serverTimezone=Asia/Seoul
-    username: pass_local
+    username: pass_local_user
     password: passlocal
     driver-class-name: com.mysql.cj.jdbc.Driver
     hikari:
