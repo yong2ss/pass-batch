@@ -1,6 +1,8 @@
 package com.yong2ss.pass.repository.booking;
 
 import com.yong2ss.pass.repository.BaseEntity;
+import com.yong2ss.pass.repository.pass.PassEntity;
+import com.yong2ss.pass.repository.user.UserEntity;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -29,4 +31,18 @@ public class BookingEntity extends BaseEntity {
     private LocalDateTime endedAt;
     private LocalDateTime cancelledAt;
 
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "userId", insertable = false, updatable = false)
+    private UserEntity userEntity;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "passSeq", insertable = false, updatable = false)
+    private PassEntity passEntity;
+
+    // endedAt 기준, yyyy-MM-HH 00:00:00
+    public LocalDateTime getStatisticsAt() {
+        return this.endedAt.withHour(0).withMinute(0).withSecond(0).withNano(0);
+
+    }
 }
